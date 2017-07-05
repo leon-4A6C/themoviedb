@@ -88,4 +88,4 @@ class TheMovieDatabase {
   }
 }
 
-module.exports = TMDB;
+module.exports = TheMovieDatabase;
