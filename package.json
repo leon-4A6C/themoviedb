@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/leon-4A6C/themoviedb/issues"
   },
-  "homepage": "https://github.com/leon-4A6C/themoviedb#readme"
+  "homepage": "https://github.com/leon-4A6C/themoviedb#readme",
+  "dependencies": {
+    "easy-api-wrapper": "^1.0.0"
+  }
 }
