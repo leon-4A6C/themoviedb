@@ -1,11 +1,24 @@
 {
-  "name": "tmdb",
+  "name": "themoviedatabase",
   "version": "1.0.0",
-  "description": "",
+  "description": "an the movie db api wrapper using promisses",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon-4A6C/themoviedb.git"
+  },
+  "keywords": [
+    "tmdb",
+    "themoviedb",
+    "themoviedatabase"
+  ],
+  "author": "leon in 't Veld",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leon-4A6C/themoviedb/issues"
+  },
+  "homepage": "https://github.com/leon-4A6C/themoviedb#readme"
 }

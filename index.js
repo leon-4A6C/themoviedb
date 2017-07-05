@@ -1,6 +1,6 @@
 const https = require('https');
 
-class TMDB {
+class TheMovieDatabase {
   constructor(apiKey) {
     this.apiKey = apiKey;
     this.baseUrl = "api.themoviedb.org";
@@ -87,13 +87,5 @@ class TMDB {
     });
   }
 }
-
-const tmdb = new TMDB("81485988d49a76332eea5e3a5297d342");
-
-tmdb.jobs().then((data) => {
-  console.log(data);
-}).catch(e => {
-  console.log(e);
-});
 
 module.exports = TMDB;
