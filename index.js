@@ -14,12 +14,23 @@ class TMDB {
   _setup() {
     for (var parent in this.endPoints) {
       this[parent] = {};
-      for (var child in this.endPoints[parent]) {
-        this[parent][child] = (options = {}, param = {}) => {
-          return this._request(this.endPoints[parent][child].path, options, param, this.endPoints[parent][child].method);
+      if (!this.endPoints[parent].path) {
+        for (var child in this.endPoints[parent]) {
+          this[parent][child] = (options = {}, param = {}) => {
+            return this._request(this.endPoints[parent][child].path, options, param, this.endPoints[parent][child].method);
+          };
+        }
+      } else {
+        this[parent] = (options = {}, param = {}) => {
+          return this._request(this.endPoints[parent].path, options, param, this.endPoints[parent].method);
         };
       }
     }
+  }
+
+  _setup() {
+    const endPoints = this.endPoints;
+    
   }
 
   // options can look like this

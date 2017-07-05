@@ -1,9 +1,123 @@
 {
+  "certifications": {
+    "movieList": {"path": "/certification/movie/list", "method": "GET"},
+    "tvList": {"path": "/certification/tv/list", "method": "GET"}
+  },
+  "changes": {
+    "movie": {"path": "/movie/changes", "method": "GET"},
+    "tv": {"path": "/tv/changes", "method": "GET"},
+    "person": {"path": "/person/changes", "method": "GET"}
+  },
+  "collections": {
+    "details": {"path": "/collection/{collection_id}", "method": "GET"},
+    "images": {"path": "/collection/{collection_id}/images", "method": "GET"}
+  },
+  "companies": {
+    "details": {"path": "/company/{company_id}", "method": "GET"},
+    "movies": {"path": "/company/{company_id}/movies", "method": "GET"}
+  },
+  "configuration": {"path": "/configuration", "method": "GET"},
+  "credits": { "path": "/credit/{credit_id}", "method": "GET"},
   "discover": {
     "movie": {"path": "/discover/movie", "method": "GET"},
     "tv": {"path": "/discover/tv", "method": "GET"}
   },
-  "movie": {
-    "videos": {"path": "/movie/{movie_id}/videos", "method": "GET"}
+  "find": {"path": "/find/{external_id}", "method": "GET"},
+  "genres": {
+    "movieList": {"path": "/genre/movie/list", "method": "GET"},
+    "tvList": {"path": "/genre/tv/list", "method": "GET"},
+    "movies": {"path": "/genre/{genre_id}/movies", "method": "GET"}
+  },
+  "jobs": {"path": "/job/list", "method": "GET"},
+  "keywords": {
+    "details": {"path": "/keyword/{keyword_id}", "method": "GET"},
+    "movies": {"path": "/keyword/{keyword_id}/movies", "method": "GET"}
+  },
+  "lists": {
+    "details": {"path": "/list/{list_id}", "method": "GET"},
+    "itemStatus": {"path": "/list/{list_id}/item_status", "method": "GET"}
+  },
+  "movies": {
+    "details": {"path": "/movie/{movie_id}", "method": "GET"},
+    "accountStates": {"path": "/movie/{movie_id}/account_states", "method": "GET"},
+    "alternativeTitles": {"path": "/movie/{movie_id}/alternative_titles", "method": "GET"},
+    "changes": {"path": "/movie/{movie_id}/changes", "method": "GET"},
+    "credits": {"path": "/movie/{movie_id}/credits", "method": "GET"},
+    "images": {"path": "/movie/{movie_id}/images", "method": "GET"},
+    "keywords": {"path": "/movie/{movie_id}/keywords", "method": "GET"},
+    "releaseDates": {"path": "/movie/{movie_id}/release_dates", "method": "GET"},
+    "videos": {"path": "/movie/{movie_id}/videos", "method": "GET"},
+    "translations": {"path": "/movie/{movie_id}/translations", "method": "GET"},
+    "recommendations": {"path": "/movie/{movie_id}/recommendations", "method": "GET"},
+    "similar": {"path": "/movie/{movie_id}/similar", "method": "GET"},
+    "reviews": {"path": "/movie/{movie_id}/reviews", "method": "GET"},
+    "lists": {"path": "/movie/{movie_id}/lists", "method": "GET"},
+    "latest": {"path": "/movie/latest", "method": "GET"},
+    "nowPlaying": {"path": "/movie/now_playing", "method": "GET"},
+    "popular": {"path": "/movie/popular", "method": "GET"},
+    "topRated": {"path": "/movie/top_rated", "method": "GET"},
+    "upcoming": {"path": "/movie/upcoming", "method": "GET"}
+  },
+  "networks": {"path": "/network/{network_id}", "method": "GET"},
+  "people": {
+    "details": {"path": "/person/{person_id}", "method": "GET"},
+    "movieCredits": {"path": "/person/{person_id}/movie_credits", "method": "GET"},
+    "tvCredits": {"path": "/person/{person_id}/tv_credits", "method": "GET"},
+    "combinedCredits": {"path": "/person/{person_id}/combined_credits", "method": "GET"},
+    "externalIds": {"path": "/person/{person_id}/external_ids", "method": "GET"},
+    "images": {"path": "/person/{person_id}/images", "method": "GET"},
+    "taggedImages": {"path": "/person/{person_id}/tagged_images", "method": "GET"},
+    "changes": {"path": "/person/{person_id}/changes", "method": "GET"},
+    "latest": {"path": "/person/latest", "method": "GET"},
+    "popular": {"path": "/person/popular", "method": "GET"}
+  },
+  "reviews": {"path": "/review/{review_id}", "method": "GET"},
+  "search": {
+    "companies": {"path": "/search/company", "method": "GET"},
+    "collections": {"path": "/search/collection", "method": "GET"},
+    "keywords": {"path": "/search/keyword", "method": "GET"},
+    "movies": {"path": "/search/movie", "method": "GET"},
+    "multi": {"path": "/search/multi", "method": "GET"},
+    "people": {"path": "/search/person", "method": "GET"},
+    "tv": {"path": "/search/tv", "method": "GET"}
+  },
+  "timezones": {"path": "/timezones/list", "method": "GET"},
+  "tv": {
+    "details": {"path": "/tv/{tv_id}", "method": "GET"},
+    "accountStates": {"path": "/tv/{tv_id}/account_states", "method": "GET"},
+    "alternativeTitles": {"path": "/tv/{tv_id}/alternative_titles", "method": "GET"},
+    "changes": {"path": "/tv/{tv_id}/changes", "method": "GET"},
+    "contentRatings": {"path": "/tv/{tv_id}/content_ratings", "method": "GET"},
+    "credits": {"path": "/tv/{tv_id}/credits", "method": "GET"},
+    "externalIds": {"path": "/tv/{tv_id}/external_ids", "method": "GET"},
+    "images": {"path": "/tv/{tv_id}/images", "method": "GET"},
+    "keywords": {"path": "/tv/{tv_id}/keywords", "method": "GET"},
+    "recommendations": {"path": "/tv/{tv_id}/recommendations", "method": "GET"},
+    "similar": {"path": "/tv/{tv_id}/similar", "method": "GET"},
+    "translations": {"path": "/tv/{tv_id}/translations", "method": "GET"},
+    "videos": {"path": "/tv/{tv_id}/videos", "method": "GET"},
+    "latest": {"path": "/tv/latest", "method": "GET"},
+    "airingToday": {"path": "/tv/airing_today", "method": "GET"},
+    "onTheAir": {"path": "/tv/on_the_air", "method": "GET"},
+    "popular": {"path": "/tv/popular", "method": "GET"},
+    "topRated": {"path": "/tv/top_rated", "method": "GET"},
+    "seasons": {
+      "details": {"path": "/tv/{tv_id}/season/{season_number}", "method": "GET"},
+      "changes": {"path": "/tv/season/{season_id}/changes", "method": "GET"},
+      "accountStates": {"path": "/tv/{tv_id}/season/{season_number}/account_states", "method": "GET"},
+      "credits": {"path": "/tv/{tv_id}/season/{season_number}/credits", "method": "GET"},
+      "externalIds": {"path": "/tv/{tv_id}/season/{season_number}/external_ids", "method": "GET"},
+      "images": {"path": "/tv/{tv_id}/season/{season_number}/images", "method": "GET"},
+      "videos": {"path": "/tv/{tv_id}/season/{season_number}/videos", "method": "GET"},
+      "episodes": {
+        "details": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}", "method": "GET"},
+        "changes": {"path": "/tv/episode/{episode_id}/changes", "method": "GET"},
+        "accountStates": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}/account_states", "method": "GET"},
+        "credits": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}/credits", "method": "GET"},
+        "externalIds": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}/external_ids", "method": "GET"},
+        "images": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}/images", "method": "GET"},
+        "videos": {"path": "/tv/{tv_id}/season/{season_number}/episode/{episode_number}/videos", "method": "GET"}
+      }
+    }
   }
 }
