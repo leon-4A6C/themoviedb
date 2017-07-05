@@ -1,0 +1,9 @@
+{
+  "discover": {
+    "movie": {"path": "/discover/movie", "method": "GET"},
+    "tv": {"path": "/discover/tv", "method": "GET"}
+  },
+  "movie": {
+    "videos": {"path": "/movie/{movie_id}/videos", "method": "GET"}
+  }
+}
