@@ -22,3 +22,7 @@ tmdb.search.movies({query: "batman", year: 2007}).then(movies => {
   console.log(movies);
 });
 ```
+
+## notes
+
+* It only has the "GET" methods for now.
