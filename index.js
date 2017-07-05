@@ -10,27 +10,28 @@ class TMDB {
     this._setup();
   }
 
-  // generates all the methods
   _setup() {
-    for (var parent in this.endPoints) {
-      this[parent] = {};
-      if (!this.endPoints[parent].path) {
-        for (var child in this.endPoints[parent]) {
-          this[parent][child] = (options = {}, param = {}) => {
-            return this._request(this.endPoints[parent][child].path, options, param, this.endPoints[parent][child].method);
-          };
+    // function to recursively add functions to the endPoints
+    const map = (part) => {
+      let res = {};
+      for (let parent in part) {
+        if (!part[parent].path) {
+          res[parent] = map(part[parent]);
+        } else {
+          res[parent] = (options = {}, param = {}) => {
+            return this._request(part[parent].path, options, param, part[parent].method);
+          }
         }
-      } else {
-        this[parent] = (options = {}, param = {}) => {
-          return this._request(this.endPoints[parent].path, options, param, this.endPoints[parent].method);
-        };
       }
+      return res;
     }
-  }
 
-  _setup() {
-    const endPoints = this.endPoints;
-    
+    const maped = map(this.endPoints);
+
+    for (var part in maped) {
+      this[part] = maped[part]; // add the functions to this
+    }
+
   }
 
   // options can look like this
@@ -90,7 +91,7 @@ class TMDB {
 
 const tmdb = new TMDB("81485988d49a76332eea5e3a5297d342");
 
-tmdb.movie.videos(null, {movie_id: "297762"}).then((data) => {
+tmdb.jobs().then((data) => {
   console.log(data);
 }).catch(e => {
   console.log(e);
