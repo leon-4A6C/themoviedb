@@ -46,8 +46,7 @@ class TMDB {
 
   _parsePathParam(path, param) {
     const reg = /{(.*?)}/g; // get the stuff between the {}
-    const arr = path.match(reg); // array with the results of the regexp
-    console.log(arr);
+    const arr = path.match(reg) || []; // array with the results of the regexp
     for (var i = 0; i < arr.length; i++) {
       let par = param[arr[i].substr(1, arr[i].length-2)];
       if (par) {
