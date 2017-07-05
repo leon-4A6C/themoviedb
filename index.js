@@ -6,18 +6,17 @@ class TMDB {
     this.baseUrl = "api.themoviedb.org";
     this.basePath = "/3";
     this.endPath = "?api_key="+this.apiKey;
+    this.endPoints = require("./endPoints.json");
     this._setup();
   }
 
   // generates all the methods
   _setup() {
-    const endPoints = require("./endPoints.json");
-    for (var parent in endPoints) {
+    for (var parent in this.endPoints) {
       this[parent] = {};
-      for (var child in endPoints[parent]) {
+      for (var child in this.endPoints[parent]) {
         this[parent][child] = (options = {}, param = {}) => {
-          console.log(this._pathParam(endPoints[parent][child].path, param));
-          return this._get(endPoints[parent][child].path, options);
+          return this._request(this.endPoints[parent][child].path, options, param, this.endPoints[parent][child].method);
         };
       }
     }
@@ -33,7 +32,7 @@ class TMDB {
     return res;
   }
 
-  _parsePathParam(path, param){
+  _parsePathParam(path, param) {
     const reg = /{(.*?)}/g; // get the stuff between the {}
     const arr = path.match(reg); // array with the results of the regexp
 
@@ -50,12 +49,13 @@ class TMDB {
     return path;
   }
 
-  _request(path, options, method) {
+  _request(path, options, param, method) {
     return new Promise((resolve, reject) => {
+
       const httpsOptions = {
         hostname: this.baseUrl,
         port: 443,
-        path: this.basePath + path + this.endPath + this._genOptions(options),
+        path: this.basePath + this._parsePathParam(path, param) + this.endPath + this._genOptions(options),
         method: method
       };
 
@@ -75,21 +75,14 @@ class TMDB {
       req.end();
     });
   }
-  _get(path, options = {}) {
-    return this._request(path, options, "GET");
-  }
-  _post(path, options = {}) {
-    return this._request(path, options, "POST");
-  }
 }
 
 const tmdb = new TMDB("81485988d49a76332eea5e3a5297d342");
-// tmdb.movie.videos(null, {movie_id: "297762"}).then((data) => {
-//   console.log(data);
-// }).catch(e => {
-//   console.log(e);
-// });
 
-console.log(tmdb._parsePathParam("/movie/{movie_id}/videos/{dinges}", {movie_id: 297762, dinges: "bla"}));
+tmdb.movie.videos(null, {movie_id: "297762"}).then((data) => {
+  console.log(data);
+}).catch(e => {
+  console.log(e);
+});
 
 module.exports = TMDB;
